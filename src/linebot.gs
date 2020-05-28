@@ -12,8 +12,8 @@ function doPost(e) {
   　// WebHookで受信した応答用Token
     var replyToken = JSON.parse(e.postData.contents).events[0].replyToken;
     
-    //userMessageの内容に応じて応答
-    if (userMessage.match(/saku|さく|サク/) != null){
+    //userMessageの内容に応じて応答　＊＊＊＊＊にマッチさせたい正規表現を入れる
+    if (userMessage.match(/＊＊＊＊＊＊＊＊＊/) != null){
     
     //fetchAlbumPhotosから写真のダウンロードURLを取得
     var pic = getAlbumContent();
