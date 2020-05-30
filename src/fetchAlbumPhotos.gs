@@ -34,8 +34,8 @@ function getAlbumContents() {
   
   //listingAlbumsで取得したalbumidを記入する
   var payload = {
-      "pageSize":"100",
-      "albumId": "XXXXXXXXXXXXXXXXXXXXXXXXxx"
+      "pageSize":"50",
+      "albumId": "XXXXXXXXXXXXXXXXXXXXXXXX"
     };
   
   if (service.hasAccess()) {
@@ -50,7 +50,7 @@ function getAlbumContents() {
       muteHttpExceptions: true
     });
     var result = JSON.parse(response.getContentText());
-    var num = Math.floor(Math.random() * (100));
+    var num = Math.floor(Math.random() * (50));
     var imageinfo = result["mediaItems"][num];
     var downloadurl = imageinfo['baseUrl']+'=w'+imageinfo['mediaMetadata']['width']+'-h'+imageinfo['mediaMetadata']['height']
     return downloadurl;
