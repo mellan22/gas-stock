@@ -16,23 +16,23 @@ function doPost(e) {
     if (userMessage.match(/＊＊＊＊＊＊＊＊＊/) != null){
     
     //fetchAlbumPhotosから写真のダウンロードURLを取得
-    var pic = getAlbumContent();
-    
-    UrlFetchApp.fetch(url, {
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            Authorization: 'Bearer ' + ACCESS_TOKEN
-        },
-        method: 'post',
-        payload: JSON.stringify({
-        replyToken: replyToken,
-        messages: [
-            {
-               type: 'image',
-               originalContentUrl: pic,
-               previewImageUrl: pic,     
-            }
-          ]
+      var pic = getAlbumContent();
+
+      UrlFetchApp.fetch(url, {  
+          headers: {
+              'Content-Type': 'application/json; charset=UTF-8',
+              Authorization: 'Bearer ' + ACCESS_TOKEN
+          },
+          method: 'post',
+          payload: JSON.stringify({
+          replyToken: replyToken,
+          messages: [
+              {
+                 type: 'image',
+                 originalContentUrl: pic,
+                 previewImageUrl: pic,     
+              }
+            ]
         })
      });
      return ContentService.createTextOutput(JSON.stringify({ content: 'post ok' })).setMimeType(ContentService.MimeType.JSON);
